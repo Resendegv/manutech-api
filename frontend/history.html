@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manutech - Histórico de Manutenção</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark">M</div>
+        <div>
+          <h1>Manutech</h1>
+          <p>Gestão de Manutenção</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="./dashboard.html" class="sidebar-link">
+          <span class="nav-icon">◫</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="./equipments.html" class="sidebar-link">
+          <span class="nav-icon">⚙</span>
+          <span>Equipamentos</span>
+        </a>
+        <a href="./work_orders.html" class="sidebar-link">
+          <span class="nav-icon">🗂</span>
+          <span>Ordens de Serviço</span>
+        </a>
+        <a href="./history.html" class="sidebar-link active">
+          <span class="nav-icon">🛠</span>
+          <span>Histórico</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="sidebar-logout-btn">Sair</button>
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="main-header">
+        <div>
+          <span class="page-tag">Rastreabilidade Técnica</span>
+          <h2>Histórico de Manutenção</h2>
+          <p>Registre e acompanhe serviços executados nos equipamentos</p>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <section class="content-card premium-card">
+          <div class="section-title">
+            <h3>Novo Registro de Histórico</h3>
+            <p>Documente os serviços realizados na operação</p>
+          </div>
+
+          <form id="historyForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="equipamento">Equipamento</label>
+                <select id="equipamento" required>
+                  <option value="">Carregando equipamentos...</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="ordem">Ordem de Serviço</label>
+                <select id="ordem">
+                  <option value="">Sem ordem vinculada</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="tipoManutencao">Tipo de Manutenção</label>
+                <select id="tipoManutencao" required>
+                  <option value="corretiva">Corretiva</option>
+                  <option value="preventiva">Preventiva</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="descricaoServico">Descrição do Serviço</label>
+                <textarea id="descricaoServico" rows="5" required></textarea>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="observacao">Observação</label>
+                <textarea id="observacao" rows="4"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" id="submitHistoryBtn" class="primary-btn">Registrar Histórico</button>
+          </form>
+
+          <p id="message" class="message"></p>
+        </section>
+
+        <section class="content-card premium-card">
+          <div class="section-header">
+            <div class="section-title no-margin">
+              <h3>Históricos Registrados</h3>
+              <p>Filtre por equipamento ou tipo de manutenção</p>
+            </div>
+
+            <div class="header-actions filters-stack">
+              <select id="historyEquipmentFilter">
+                <option value="">Todos os equipamentos</option>
+              </select>
+
+              <select id="historyTypeFilter">
+                <option value="">Todos os tipos</option>
+                <option value="corretiva">Corretiva</option>
+                <option value="preventiva">Preventiva</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-container premium-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Equipamento ID</th>
+                  <th>Ordem ID</th>
+                  <th>Tipo</th>
+                  <th>Descrição do Serviço</th>
+                  <th>Observação</th>
+                  <th>Data do Serviço</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="historyTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/history.js"></script>
+</body>
+</html>

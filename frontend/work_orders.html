@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manutech - Ordens de Serviço</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark">M</div>
+        <div>
+          <h1>Manutech</h1>
+          <p>Gestão de Manutenção</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="./dashboard.html" class="sidebar-link">
+          <span class="nav-icon">◫</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="./equipments.html" class="sidebar-link">
+          <span class="nav-icon">⚙</span>
+          <span>Equipamentos</span>
+        </a>
+        <a href="./work_orders.html" class="sidebar-link active">
+          <span class="nav-icon">🗂</span>
+          <span>Ordens de Serviço</span>
+        </a>
+        <a href="./history.html" class="sidebar-link">
+          <span class="nav-icon">🛠</span>
+          <span>Histórico</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="sidebar-logout-btn">Sair</button>
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="main-header">
+        <div>
+          <span class="page-tag">Fluxo Operacional</span>
+          <h2>Ordens de Serviço</h2>
+          <p>Crie, acompanhe e atualize as ordens da operação</p>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <section class="content-card premium-card">
+          <div class="section-title">
+            <h3>Nova Ordem de Serviço</h3>
+            <p>Registre uma nova necessidade de manutenção</p>
+          </div>
+
+          <form id="workOrderForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" required>
+              </div>
+
+              <div class="form-group">
+                <label for="prioridade">Prioridade</label>
+                <select id="prioridade" required>
+                  <option value="">Selecione</option>
+                  <option value="baixa">Baixa</option>
+                  <option value="media">Média</option>
+                  <option value="alta">Alta</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="equipamento">Equipamento</label>
+                <select id="equipamento" required>
+                  <option value="">Carregando equipamentos...</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" rows="5" required></textarea>
+              </div>
+            </div>
+
+            <button type="submit" id="submitWorkOrderBtn" class="primary-btn">Criar Ordem</button>
+          </form>
+
+          <p id="message" class="message"></p>
+        </section>
+
+        <section class="content-card premium-card">
+          <div class="section-header">
+            <div class="section-title no-margin">
+              <h3>Ordens Registradas</h3>
+              <p>Filtre e acompanhe o andamento das ordens</p>
+            </div>
+
+            <div class="header-actions filters-stack">
+              <select id="statusFilter">
+                <option value="">Todos os status</option>
+                <option value="aberta">Abertas</option>
+                <option value="em_andamento">Em andamento</option>
+                <option value="finalizada">Finalizadas</option>
+              </select>
+
+              <select id="prioridadeFilter">
+                <option value="">Todas as prioridades</option>
+                <option value="baixa">Baixa</option>
+                <option value="media">Média</option>
+                <option value="alta">Alta</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-container premium-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Título</th>
+                  <th>Descrição</th>
+                  <th>Prioridade</th>
+                  <th>Status</th>
+                  <th>Equipamento ID</th>
+                  <th>Técnico ID</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="workOrderTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/work_orders.js"></script>
+</body>
+</html>

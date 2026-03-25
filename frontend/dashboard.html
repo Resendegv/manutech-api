@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manutech - Dashboard</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark">M</div>
+        <div>
+          <h1>Manutech</h1>
+          <p>Gestão de Manutenção</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="./dashboard.html" class="sidebar-link active">
+          <span class="nav-icon">◫</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="./equipments.html" class="sidebar-link">
+          <span class="nav-icon">⚙</span>
+          <span>Equipamentos</span>
+        </a>
+        <a href="./work_orders.html" class="sidebar-link">
+          <span class="nav-icon">🗂</span>
+          <span>Ordens de Serviço</span>
+        </a>
+        <a href="./history.html" class="sidebar-link">
+          <span class="nav-icon">🛠</span>
+          <span>Histórico</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="sidebar-logout-btn">Sair</button>
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="main-header">
+        <div>
+          <span class="page-tag">Painel Executivo</span>
+          <h2>Visão Geral da Operação</h2>
+          <p>Acompanhe os principais indicadores do sistema</p>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <section class="stats-grid">
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-icon">⚙</span>
+              <span class="metric-label">Total de Equipamentos</span>
+            </div>
+            <strong class="metric-value" id="totalEquipamentos">0</strong>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-icon">🗂</span>
+              <span class="metric-label">Total de Ordens</span>
+            </div>
+            <strong class="metric-value" id="totalOrdens">0</strong>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-icon">🟡</span>
+              <span class="metric-label">Ordens Abertas</span>
+            </div>
+            <strong class="metric-value" id="ordensAbertas">0</strong>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-icon">🔵</span>
+              <span class="metric-label">Em Andamento</span>
+            </div>
+            <strong class="metric-value" id="ordensEmAndamento">0</strong>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-icon">🟢</span>
+              <span class="metric-label">Finalizadas</span>
+            </div>
+            <strong class="metric-value" id="ordensFinalizadas">0</strong>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-icon">📘</span>
+              <span class="metric-label">Históricos</span>
+            </div>
+            <strong class="metric-value" id="totalHistoricos">0</strong>
+          </div>
+        </section>
+
+        <section class="content-card premium-card">
+          <div class="section-title">
+            <h3>Ordens Recentes</h3>
+            <p>Últimas ordens registradas no sistema</p>
+          </div>
+
+          <div id="ultimasOrdens" class="recent-orders-list">
+            <p>Nenhuma ordem recente.</p>
+          </div>
+        </section>
+
+        <p id="message" class="message"></p>
+      </main>
+    </div>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/dashboard.js"></script>
+</body>
+</html>

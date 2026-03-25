@@ -1,0 +1,68 @@
+app/
+├── main.py
+├── database.py
+├── models/
+│   ├── user.py
+│   ├── equipment.py
+│   ├── work_order.py
+│   └── maintenance_history.py
+├── schemas/
+│   ├── user.py
+│   ├── equipment.py
+│   ├── work_order.py
+│   ├── maintenance_history.py
+│   ├── auth.py
+│   └── dashboard.py
+├── routes/
+│   ├── auth.py
+│   ├── users.py
+│   ├── equipments.py
+│   ├── work_orders.py
+│   ├── maintenance_history.py
+│   └── dashboard.py
+├── services/
+│   ├── auth_service.py
+│   ├── equipment_service.py
+│   ├── work_order_service.py
+│   └── history_service.py
+├── utils/
+│   ├── security.py
+│   └── dependencies.py
+└── __init__.py
+
+
+PROJETO_2/
+│
+├── app/
+│   ├── main.py
+│   ├── database.py
+│   ├── models/
+│   │   ├── user.py
+│   │   ├── equipment.py
+│   │   └── work_order.py
+│   ├── schemas/
+│   │   ├── user.py
+│   │   ├── equipment.py
+│   │   ├── work_order.py
+│   │   └── auth.py
+│   ├── routes/
+│   │   ├── auth.py
+│   │   ├── equipments.py
+│   │   └── work_orders.py
+│   └── utils/
+│       └── security.py
+│
+├── frontend/
+│   ├── login.html
+│   ├── dashboard.html
+│   ├── equipments.html
+│   ├── work_orders.html
+│   ├── css/style.css
+│   └── js/
+│       ├── api.js
+│       ├── auth.js
+│       ├── equipments.js
+│       └── work_orders.js
+│
+├── requirements.txt
+└── README.md
